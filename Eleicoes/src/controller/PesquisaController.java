@@ -6,14 +6,15 @@ import model.Pesquisa;
 public class PesquisaController {
 	
 	public void registrarPesquisa(Pesquisa pesquisa) throws Exception{
-		if (Pesquisa.getDataPesquisa() == null) {
-			throw Exception ("Data Invalida");
+		if (pesquisa.getDataPesquisa() == null) {
+			throw new Exception ("Data Invalida");
 		}
-		if (Pesquisa.getCandidato() == null) {
+		if (pesquisa.getIdCandidato() == 0) {
 			throw new Exception("Candidato Inválido");
 			
 		}
-		PesquisaDao.getInstance().registrar(pesquisa);
+		PesquisaDao.getInstance().registrarPesquisa(pesquisa);
+		
 		
 	}
 

@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import dao.PartidoDao;
 import model.Partido;
@@ -25,8 +24,8 @@ public class PartidoController {
 		
 	}
 	
-	public void excluir(int idPartido)  throws ExecutionException{
-		if (partido.getNomePartido() == null || partido.getNomePartido().trim().equals("")) {
+	public void excluir(int idPartido)  throws Exception{
+		if (idPartido == 0) {
 			throw new Exception("Nenhum Partido Selecionado");
 		}
 		PartidoDao.getInstance().excluir(idPartido);
@@ -35,5 +34,6 @@ public class PartidoController {
 		return PartidoDao.getInstance().listar();
 		
 		
+	
 	}
 }
