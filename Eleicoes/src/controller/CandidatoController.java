@@ -30,7 +30,15 @@ public class CandidatoController {
 	}
 	
 	public List<Candidato> listar(){
-		return CandidatoDao.getInstance().listar();
+		try {
+			return CandidatoDao.getInstance().listar();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 		
+		
+			
 	}
 }

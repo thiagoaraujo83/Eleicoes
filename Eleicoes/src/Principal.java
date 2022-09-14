@@ -1,3 +1,5 @@
+import java.util.List;
+
 import controller.CandidatoController;
 import model.Candidato;
 
@@ -5,25 +7,16 @@ public class Principal {
 	public static void main (String []args) {
 		
 		
-		Candidato candidato1 = new Candidato();
-		candidato1.setIdCandidato(1);
-		candidato1.setNomeCandidato("Jair");
-		candidato1.setPartido_candidato("PL");
+		Candidato candidato1 = new Candidato(0, "Jair", "PL", false);
 		
-		Candidato candidato2 = new Candidato();
-		candidato2.setIdCandidato(1);
-		candidato2.setNomeCandidato("Ciro");
-		candidato2.setPartido_candidato("PDT");
+		Candidato candidato2 = new Candidato(0, "Ciro", "PDT", false);
 		
-		Candidato candidato3 = new Candidato();
-		candidato3.setIdCandidato(1);
-		candidato3.setNomeCandidato("Rose Modesto");
-		candidato3.setPartido_candidato("UN");
 		
-		Candidato candidato4 = new Candidato();
-		candidato4.setIdCandidato(1);
-		candidato4.setNomeCandidato("Lula");
-		candidato4.setPartido_candidato("PT");
+		Candidato candidato3 = new Candidato(0, "Simone Tebet", "MDB", false);
+		
+		
+		Candidato candidato4 = new Candidato(0, "Lula", "PT", false);
+		
 		
 		CandidatoController controller = new CandidatoController();
 		try {
@@ -34,8 +27,10 @@ public class Principal {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		List<Candidato> l = controller.listar();
 		
-		for (Candidato c : controller.listar()) {
+		
+		for (Candidato c : l) {
 			System.out.println(c.toString());
 		}
 	}

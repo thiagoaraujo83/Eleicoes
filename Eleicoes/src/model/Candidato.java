@@ -5,71 +5,74 @@ public class Candidato {
 		private int idCandidato;
 		private String nomeCandidato;
 		private String partido_candidato;
-		private boolean candidato_ficha_limpa;
-		private String data_nascimento;
-		private String situacao_justica;
+		private Boolean fichalimpa ;
 		
-		public Candidato (String Nome, int Id) {
-			this.nomeCandidato = Nome;
-			this.idCandidato = Id;
+		
+		
+		public Candidato(int idCandidato, String nomeCandidato, String partido_candidato, Boolean fichalimpa) {
+			super();
+			this.idCandidato = idCandidato;
+			this.nomeCandidato = nomeCandidato;
+			this.partido_candidato = partido_candidato;
+			this.fichalimpa = fichalimpa;
 		}
+
+		@Override
+		public String toString() {
+			String s = "Candidato.ID: "+ idCandidato + ", Partido" + partido_candidato + ", Ficha Limpa: " + fichalimpa + ".";
 		
-		public Candidato () {
-			
+			return s;
 		}
 
 		public int getIdCandidato() {
 			return idCandidato;
 		}
 
+
+
 		public void setIdCandidato(int idCandidato) {
 			this.idCandidato = idCandidato;
 		}
+
+
 
 		public String getNomeCandidato() {
 			return nomeCandidato;
 		}
 
+
+
 		public void setNomeCandidato(String nomeCandidato) {
 			this.nomeCandidato = nomeCandidato;
 		}
+
+
 
 		public String getPartido_candidato() {
 			return partido_candidato;
 		}
 
+
+
 		public void setPartido_candidato(String partido_candidato) {
 			this.partido_candidato = partido_candidato;
 		}
 
-		public boolean isCandidato_ficha_limpa() {
-			return candidato_ficha_limpa;
+
+
+		public Boolean getFichalimpa() {
+			return fichalimpa;
 		}
 
-		public void setCandidato_ficha_limpa(boolean candidato_ficha_limpa) {
-			this.candidato_ficha_limpa = candidato_ficha_limpa;
-		}
 
-		public String getData_nascimento() {
-			return data_nascimento;
-		}
 
-		public void setData_nascimento(String data_nascimento) {
-			this.data_nascimento = data_nascimento;
-		}
-
-		public String getSituacao_justica() {
-			return situacao_justica;
-		}
-
-		public void setSituacao_justica(String situacao_justica) {
-			this.situacao_justica = situacao_justica;
+		public void setFichalimpa(Boolean fichalimpa) {
+			this.fichalimpa = fichalimpa;
 		}
 		
-		public String toString() {
-			return nomeCandidato + " - " + partido_candidato;
-			
-		}
+	
+
+		
 		
 }
 
