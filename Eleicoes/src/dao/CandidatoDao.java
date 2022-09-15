@@ -8,14 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
-
 import Util.ConnectionUtil;
 import model.Candidato;
 
 public class CandidatoDao{
 	
 	private static CandidatoDao instance;
+	private List<Candidato> listaCandidatos = new ArrayList<>();
 	private Connection con = ConnectionUtil.getConnection();
 	
 	
@@ -31,32 +30,34 @@ public class CandidatoDao{
 }
 	
 		
-	public void salvar (Candidato t) throws SQLException{
+	public void salvar (Candidato t) {
 		try {
-			String sql = "insert into candidato (nomeCandidato, partido_candidato) values (?, ?)";
+			String sql = "insert into candidato (nomeCandidato, partido_candidato, fichalimpa) values (?, ?,?)";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getNomeCandidato());
 			pstmt.setString(2,t.getPartido_candidato());
+			pstmt.setBoolean(3, t.getFichalimpa());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 				
 	}
-	public void atualizar(Candidato t) throws SQLException {
+	public void atualizar(Candidato t)  {
 		try {
-			String sql = "update candidato set nomeCandidato= ?, partido_candidato= ?, wherw id =?";
+			String sql = "update candidato set nomeCandidato= ?, partido_candidato= ?, fichalimpa=?, wherw id =?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, t.getNomeCandidato());
 			pstmt.setString(2,t.getPartido_candidato());
-			pstmt.setInt(3, t.getIdCandidato());
+			pstmt.setBoolean(3, t.getFichalimpa());
+			pstmt.setInt(4, t.getIdCandidato());
 			pstmt.executeUpdate();			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 				
 	}
-	public void excluir(int idCandidato) throws SQLException {
+	public void excluir(int idCandidato)  {
 		try {
 			String sql = "delete from candidato wherw id =?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -87,6 +88,16 @@ public class CandidatoDao{
 			return listaCandidatos;
 		
 			}
+
+
+	public List<Candidato> getListaCandidatos() {
+		return listaCandidatos;
+	}
+
+
+	public void setListaCandidatos(List<Candidato> listaCandidatos) {
+		this.listaCandidatos = listaCandidatos;
+	}
 		
 }
 

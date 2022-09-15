@@ -9,16 +9,16 @@ public class ConnectionUtil {
 	
 	public static Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/eleicoes";
-			con = DriverManager.getConnection(url, "root", "root");
-			con.setAutoCommit(true);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/Eleicoes";
+			con = DriverManager.getConnection(url, "root", "");
+			con.setAutoCommit(false);
 			return con;
 			
-		} catch (ClassNotFoundException e) {
+		} catch ( ClassNotFoundException e) {
 			e.printStackTrace();
 			
-		} catch (SQLException se) {
+		} catch ( SQLException se) {
 			se.printStackTrace();
 		}
 		return null;
