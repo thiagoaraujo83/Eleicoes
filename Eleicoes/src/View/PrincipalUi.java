@@ -48,23 +48,27 @@ public class PrincipalUi extends JFrame {
 		JMenuItem jmiIdCandidato = new JMenuItem("idCandidato");
 		jmiIdCandidato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		jmCandidato.add(jmiIdCandidato);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Nome");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenuItem jmiNome = new JMenuItem("Nome");
+		jmiNome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-							
+				CadastroCandidatosUni cadNome = new CadastroCandidatosUni();
+				cadNome.setVisible(true);
+				contentPane.add(cadNome,0);
+														
 			}
 		});
-		jmCandidato.add(mntmNewMenuItem);
+		jmCandidato.add(jmiNome);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Partido");
-		jmCandidato.add(mntmNewMenuItem_1);
+		JMenuItem jmiPartido = new JMenuItem("Partido");
+		jmCandidato.add(jmiPartido);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Ficha Limpa");
-		jmCandidato.add(mntmNewMenuItem_2);
+		JMenuItem Fichalima = new JMenuItem("Ficha Limpa");
+		jmCandidato.add(Fichalima);
 		
 		JMenu jmPartido = new JMenu("Partido");
 		jdPrincipal.add(jmPartido);
